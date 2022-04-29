@@ -1,6 +1,8 @@
 CAFE 디저트 계산기
 ===============
 
+![image](https://user-images.githubusercontent.com/103521728/165879314-75abfd4f-f3e7-45ba-ad7e-9095e7005f94.png)
+
 1. mini project 주제: <CAFE 디저트 자판기> 
 
 2. mini project 에 대한 소개
