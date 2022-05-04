@@ -7,7 +7,7 @@ typedef struct{
     char explain[30];   //설명
     char weight [20];   //중량
     int price;          //판매가격
-    int deliver;        //배송방법(1:새벽배송/ 2: 택배배송)
+    char kind [20];     //종류
     
 } Menu;
 
