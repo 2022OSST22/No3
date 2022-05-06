@@ -5,19 +5,27 @@
 int main(void){
     Menu* p [50];
     int menu;
-    int count =0;
+    int count=0,index=0;
+
     while(1){
         menu = selectOption();
-        if(menu==1){//메뉴 조회
+        
+        if(menu==0) break;
 
-        }
-        else if(menu==2){//메뉴 추가
-            
-        }
-        else if(menu==3){//메뉴 수정
-            
-        }
-        else if(menu==4){//메뉴 삭제
+        if(menu==1){
+            if(count>0)
+            loadMenu(p,index);   
+        }//메뉴 조회
+
+        else if(menu==2){
+            count=count+getMenu(&p[index++]);
+        }//메뉴 추가
+
+        else if(menu==3){
+            changeMenu(p);
+        }//메뉴 수정
+
+        else if(menu==4){
             int num, n4;
             printf("삭제할 제품 번호를 입력해주세요 >");
             scanf("%d",&num);
@@ -27,7 +35,8 @@ int main(void){
                 printf("=>존재하지 않는 제품 번호입니다!!");
             }
             if(n4==0) printf("삭제되었습니다.\n");
-        }
+        }//메뉴 삭제
+
         else if(menu==5){//메뉴 저장
             
         }
