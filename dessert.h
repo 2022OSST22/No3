@@ -4,7 +4,6 @@
 
 typedef struct{
     char name[20];      //제품명
-    char explain[30];   //설명
     int weight;         //중량
     int price;          //판매가격
     char kind [20];     //종류
@@ -12,7 +11,8 @@ typedef struct{
 } Menu;
 
 int selectOption();// 사용 기능을 선택하는 함수
-void loadMenu( Menu* p[], int count);//모든 제품을 출력하는 함수
+void loadMenu( Menu* p, int count);//모든 제품을 출력하는 함수
+int readMenu(Menu p);//하나의 제품을 출력하는 함수
 int getMenu( Menu *p);//제품을 추가하는 함수
 void saveMenu( Menu *p[], int count); // 파일에 상품을 저장하는 함수
 int deleteMenu( Menu *p);//주문하지 않을 제품을 삭제하는 기능 주문하지 않을 시 (return -1)

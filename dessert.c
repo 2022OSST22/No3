@@ -13,6 +13,51 @@ int selectOption(){
     scanf("%d", &menu);
     return menu;
 }
+
+int readMenu(Menu p){
+    printf("%s %d %d %s\n",p.name,p.weight,p.price,p.kind);
+    return 1;
+
+}//하나의 제품을 출력하는 함수
+
+void loadMenu( Menu* p, int count){
+    printf("제품명  중량    가격    종류");
+    for(int i=0; i<count; i++){
+        printf("[%d]",i+1);
+        readMenu(p[i]);
+        printf("\n");
+    }
+}//모든 제품을 출력하는 함수
+
+int getMenu( Menu *p){
+    printf("이름은?");
+    scanf("%s",p->name);
+    printf("중량은?");
+    scanf("%d",&p->weight);
+    printf("가격은?");
+    scanf("%d",&p->price);
+    printf("종류는?");
+    scanf("%s",p->kind);
+    return 1;
+}//제품을 추가하는 함수
+
+
+int changeMenu(Menu* p[]){
+    int updatenum;
+    printf("수정하고싶은 제품의 번호를 입력해주세요: \n");
+    scanf("%d",updatenum);
+    printf("이름은?");
+    scanf("%s",p[updatenum-1]->name);
+    printf("중량은?");
+    scanf("%d",p[updatenum-1]->weight);
+    printf("가격은?");
+    scanf("%d",p[updatenum-1]->price);
+    printf("종류는?");
+    scanf("%s",p[updatenum-1]->kind);
+    printf("수정되었습니다\n");
+    return 1;
+}// 메뉴를 변경하는 함수
+
 int deleteMenu( Menu *p){
     int n;
     printf("정말 삭제하시겠습니까?(확인:0/아니오:1)\n");
@@ -23,6 +68,7 @@ int deleteMenu( Menu *p){
     }
     return -1;
 }//주문하지 않을 제품을 삭제하는 기능 주문하지 않을 시 (return -1)
+
 void selectMenu(Menu *p[], int count){
     int num,a,b;
     FILE* fp;
@@ -33,7 +79,7 @@ void selectMenu(Menu *p[], int count){
         printf("수량을 입력하세요");
         scanf("%d",&a);
         if(p[num]->price != -1 && num <=count) {
-            fprintf(fp, "%s %s %dg %d %s %d개\n",p[num]->name, p[num]->explain, p[num]->weight, p[num]->price, p[num]->kind, a);
+            fprintf(fp, "%s %dg %d %s %d개\n",p[num]->name, p[num]->weight, p[num]->price, p[num]->kind, a);
         }
         printf(" 더 주문하시겠습니까? (네:0/아니오:1)");
         scanf("%d",&b);
