@@ -36,6 +36,7 @@ int main(void){
         }
         else if(menu==7){//주문 선택하기
             selectMenu(p);
+            printf("=>주문이 접수되었습니다.\n");
         }
         else if(menu==8){//제품명 검색
             
