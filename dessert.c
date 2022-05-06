@@ -23,15 +23,23 @@ int deleteMenu( Menu *p){
     }
     return -1;
 }//주문하지 않을 제품을 삭제하는 기능 주문하지 않을 시 (return -1)
-void selectMenu(Menu *p[]){
-    int num;
-    printf("선택할 메뉴의 번호를 입력 하세요");
-    scanf("%d",&num);
+void selectMenu(Menu *p[], int count){
+    int num,a,b;
     FILE* fp;
-
-    fp = fopen("order.txt","a");
-    if(p[num]->price != -1) {
-        fprintf(fp, "%s %s %dg %d %s\n",p[num]->name, p[num]->explain, p[num]->weight, p[num]->price, p[num]->kind);
+    fp = fopen("order.txt","wt");
+    while(1){
+        printf("선택할 메뉴의 번호를 입력 하세요");
+        scanf("%d",&num);
+        printf("수량을 입력하세요");
+        scanf("%d",&a);
+        if(p[num]->price != -1 && num <=count) {
+            fprintf(fp, "%s %s %dg %d %s %d개\n",p[num]->name, p[num]->explain, p[num]->weight, p[num]->price, p[num]->kind, a);
+        }
+        printf(" 더 주문하시겠습니까? (네:0/아니오:1)");
+        scanf("%d",&b);
+        if(b==1) break;
     }
     fclose(fp);
+    printf("=>주문이 접수되었습니다.\n\n");
 } //주문할 메뉴를 선택하는 함수
+
