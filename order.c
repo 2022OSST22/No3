@@ -10,19 +10,20 @@ int main(void){
     while(1){
         menu = selectOption();
         
-        if(menu==0) break;
-
         if(menu==1){
             if(count>0)
             loadMenu(p,index);   
         }//메뉴 조회
 
         else if(menu==2){
-            count=count+getMenu(&p[index++]);
+            p[index] = (Menu*) malloc(sizeof(Menu));
+            count=count+getMenu(p[index++]);
+
         }//메뉴 추가
 
         else if(menu==3){
-            changeMenu(p);
+            int n3 = changeMenu(p,index);
+            if(n3 !=1) printf("=>잘못된 번호입니다.\n");
         }//메뉴 수정
 
         else if(menu==4){

@@ -14,22 +14,22 @@ int selectOption(){
     return menu;
 }
 
-int readMenu(Menu p){
-    printf("%s %d %d %s\n",p.name,p.weight,p.price,p.kind);
-    return 1;
+void readMenu(Menu* p){
+  if(p->price!=-1)
+    printf("%s %dg %d %s\n",p->name,p->weight,p->price,p->kind);
 
 }//하나의 제품을 출력하는 함수
 
-void loadMenu( Menu* p, int count){
-    printf("제품명  중량    가격    종류");
+void loadMenu( Menu* p[], int count){
+    printf("\n제품명  중량    가격    종류\n-----------------------\n");
     for(int i=0; i<count; i++){
-        printf("[%d]",i+1);
+        if(p[i]->price!=-1)printf("[%d]",i+1);
         readMenu(p[i]);
-        printf("\n");
     }
 }//모든 제품을 출력하는 함수
 
 int getMenu( Menu *p){
+    
     printf("이름은?");
     scanf("%s",p->name);
     printf("중량은?");
@@ -42,16 +42,18 @@ int getMenu( Menu *p){
 }//제품을 추가하는 함수
 
 
-int changeMenu(Menu* p[]){
+int changeMenu(Menu* p[], int count){
     int updatenum;
-    printf("수정하고싶은 제품의 번호를 입력해주세요: \n");
-    scanf("%d",updatenum);
+    printf("수정하고싶은 제품의 번호를 입력해주세요: ");
+    scanf("%d",&updatenum);
+    if(updatenum< count) return 0;
+
     printf("이름은?");
     scanf("%s",p[updatenum-1]->name);
     printf("중량은?");
-    scanf("%d",p[updatenum-1]->weight);
+    scanf("%d",&p[updatenum-1]->weight);
     printf("가격은?");
-    scanf("%d",p[updatenum-1]->price);
+    scanf("%d",&p[updatenum-1]->price);
     printf("종류는?");
     scanf("%s",p[updatenum-1]->kind);
     printf("수정되었습니다\n");
@@ -60,7 +62,7 @@ int changeMenu(Menu* p[]){
 
 int deleteMenu( Menu *p){
     int n;
-    printf("정말 삭제하시겠습니까?(확인:0/아니오:1)\n");
+    printf("정말 삭제하시겠습니까?(확인:0/아니오:1) ");
     scanf("%d",&n);
     if(n==0){
         p->price = -1;
@@ -74,14 +76,15 @@ void selectMenu(Menu *p[], int count){
     FILE* fp;
     fp = fopen("order.txt","wt");
     while(1){
-        printf("선택할 메뉴의 번호를 입력 하세요");
+        loadMenu(p,count);
+        printf("선택할 메뉴의 번호를 입력 하세요: ");
         scanf("%d",&num);
-        printf("수량을 입력하세요");
+        printf("수량을 입력하세요: ");
         scanf("%d",&a);
-        if(p[num]->price != -1 && num <=count) {
-            fprintf(fp, "%s %dg %d %s %d개\n",p[num]->name, p[num]->weight, p[num]->price, p[num]->kind, a);
+        if(p[num-1]->price != -1 && num <count) {
+            fprintf(fp, "%s %dg %d %s %d개\n",p[num-1]->name, p[num-1]->weight, p[num-1]->price, p[num-1]->kind, a);
         }
-        printf(" 더 주문하시겠습니까? (네:0/아니오:1)");
+        printf(" 더 주문하시겠습니까? (네:0/아니오:1) ");
         scanf("%d",&b);
         if(b==1) break;
     }
