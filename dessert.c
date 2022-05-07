@@ -62,7 +62,7 @@ int changeMenu(Menu* p[], int count){
 
 int deleteMenu( Menu *p){
     int n;
-    printf("정말 삭제하시겠습니까?(확인:0/아니오:1)\n");
+    printf("정말 삭제하시겠습니까?(확인:0/아니오:1) ");
     scanf("%d",&n);
     if(n==0){
         p->price = -1;
