@@ -10,8 +10,6 @@ int main(void){
     while(1){
         menu = selectOption();
         
-        if(menu==0) break;
-
         if(menu==1){
             if(count>0)
             loadMenu(p,index);   
