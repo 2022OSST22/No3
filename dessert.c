@@ -21,9 +21,9 @@ void readMenu(Menu* p){
 }//하나의 제품을 출력하는 함수
 
 void loadMenu( Menu* p[], int count){
-    printf("제품명  중량    가격    종류\n-----------------------\n");
+    printf("\n제품명  중량    가격    종류\n-----------------------\n");
     for(int i=0; i<count; i++){
-        printf("[%d]",i+1);
+        if(p[i]->price!=-1)printf("[%d]",i+1);
         readMenu(p[i]);
     }
 }//모든 제품을 출력하는 함수
@@ -82,7 +82,7 @@ void selectMenu(Menu *p[], int count){
         printf("수량을 입력하세요: ");
         scanf("%d",&a);
         if(p[num-1]->price != -1 && num <count) {
-            fprintf(fp, "%s %dg %d %s %d개\n",p[num]->name, p[num]->weight, p[num]->price, p[num]->kind, a);
+            fprintf(fp, "%s %dg %d %s %d개\n",p[num-1]->name, p[num-1]->weight, p[num-1]->price, p[num-1]->kind, a);
         }
         printf(" 더 주문하시겠습니까? (네:0/아니오:1) ");
         scanf("%d",&b);
