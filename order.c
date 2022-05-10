@@ -55,7 +55,7 @@ int main(void){
         }//제품명 검색
 
         else if(menu==9){
-            
+        searchPrice(p,count);
         }//가격으로 검색
 
         else if(menu==10){

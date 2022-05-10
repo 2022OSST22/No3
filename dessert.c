@@ -16,7 +16,7 @@ int selectOption(){
 
 void readMenu(Menu* p){
   if(p->price!=-1)
-    printf("%s %dg %d %s\n",p->name,p->weight,p->price,p->kind);
+    printf("%s %dg %d원 %s\n",p->name,p->weight,p->price,p->kind);
 
 }//하나의 제품을 출력하는 함수
 
@@ -101,8 +101,17 @@ void searchName( Menu *p[], int count){
             readMenu(p[i]);
         }
     }
-
-
 }//제품명을 통해 검색하는 함수
-void searchPrice( Menu* p[], int count);//가격을 통해 검색하는 함수
+
+void searchPrice( Menu* p[], int count){
+    int search;
+    printf("검색할 제품의 가격을 입력하세요: ");
+    scanf("%d",&search);
+    for(int i=0;i<count;i++){
+        if(p[i]->price=search){
+            readMenu(p[i]);
+        }
+    }
+}//가격을 통해 검색하는 함수
+
 void searchKind( Menu* p[], int count);//메뉴의 종류을 통해 검색하는 함수
