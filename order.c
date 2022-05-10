@@ -13,54 +13,60 @@ int main(void){
         if(menu==1){
             if(count>0)
             loadMenu(p,index);   
-        }//ë©”ë‰´ ì¡°íšŒ
+        }//¸Ş´º Á¶È¸
 
         else if(menu==2){
             p[index] = (Menu*) malloc(sizeof(Menu));
             count=count+getMenu(p[index++]);
 
-        }//ë©”ë‰´ ì¶”ê°€
+        }//¸Ş´º Ãß°¡
 
         else if(menu==3){
             int n3 = changeMenu(p,index);
-            if(n3 !=1) printf("=>ì˜ëª»ëœ ë²ˆí˜¸ì…ë‹ˆë‹¤.\n");
-        }//ë©”ë‰´ ìˆ˜ì •
+            if(n3 !=1) printf("=>Àß¸øµÈ ¹øÈ£ÀÔ´Ï´Ù.\n");
+        }//¸Ş´º ¼öÁ¤
 
         else if(menu==4){
             int num, n4;
-            printf("ì‚­ì œí•  ì œí’ˆ ë²ˆí˜¸ë¥¼ ì…ë ¥í•´ì£¼ì„¸ìš” >");
+            printf("»èÁ¦ÇÒ Á¦Ç° ¹øÈ£¸¦ ÀÔ·ÂÇØÁÖ¼¼¿ä >");
             scanf("%d",&num);
             if(num<=count){
                 n4 = deleteMenu(p[num-1]);
             } else{
-                printf("=>ì¡´ì¬í•˜ì§€ ì•ŠëŠ” ì œí’ˆ ë²ˆí˜¸ì…ë‹ˆë‹¤!!");
+                printf("=>Á¸ÀçÇÏÁö ¾Ê´Â Á¦Ç° ¹øÈ£ÀÔ´Ï´Ù!!");
             }
-            if(n4==0) printf("ì‚­ì œë˜ì—ˆìŠµë‹ˆë‹¤.\n");
-        }//ë©”ë‰´ ì‚­ì œ
+            if(n4==0) printf("»èÁ¦µÇ¾ú½À´Ï´Ù.\n");
+        }//¸Ş´º »èÁ¦
 
-        else if(menu==5){//ë©”ë‰´ ì €ì¥
+        else if(menu==5){
             
-        }
-        else if(menu==6){//íŒŒì¼ ê°€ì ¸ì˜¤ê¸°
+        }//¸Ş´º ÀúÀå
+
+        else if(menu==6){
             
-        }
-        else if(menu==7){//ì£¼ë¬¸ ì„ íƒí•˜ê¸°
+        }//ÆÄÀÏ °¡Á®¿À±â
+
+        else if(menu==7){
             selectMenu(p, count);
-        }
-        else if(menu==8){//ì œí’ˆëª… ê²€ìƒ‰
+        }//ÁÖ¹® ¼±ÅÃÇÏ±â
+
+        else if(menu==8){
+        searchName(p,count);
+        }//Á¦Ç°¸í °Ë»ö
+
+        else if(menu==9){
             
-        }
-        else if(menu==9){//ê°€ê²©ìœ¼ë¡œ ê²€ìƒ‰
+        }//°¡°İÀ¸·Î °Ë»ö
+
+        else if(menu==10){
             
-        }
-        else if(menu==10){//ë©”ë‰´ ì¢…ë¥˜ë¡œ ê²€ìƒ‰
-            
-        }
+        }//¸Ş´º Á¾·ù·Î °Ë»ö
+
         else {
             for(int i=0;i<count;i++){
                 free(p[i]);
             }
-            printf("=>ì¢…ë£Œë˜ì—ˆìŠµë‹ˆë‹¤.\n");
+            printf("=>Á¾·áµÇ¾ú½À´Ï´Ù.\n");
             break;
         }
     }

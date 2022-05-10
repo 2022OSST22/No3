@@ -19,6 +19,6 @@ int deleteMenu( Menu *p);//주문하지 않을 제품을 삭제하는 기능 주
 int changeMenu(Menu* p[], int count);// 메뉴를 변경하는 함수
 void selectMenu(Menu *p[], int count); //주문할 메뉴를 선택하는 함수
 int bringMenu( Menu* p[]);// 저장한 메뉴를 다시 가져오는 함수
-void searchName( Menu*p[], int count);//제품명을 찾는 함수
+void searchName( Menu*p[], int count);//제품명을 통해 검색하는 함수
 void searchPrice( Menu* p[], int count);//가격을 통해 검색하는 함수
 void searchKind( Menu* p[], int count);//메뉴의 종류을 통해 검색하는 함수
