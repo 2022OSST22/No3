@@ -2,74 +2,74 @@
 
 int selectOption(){
     int menu;
-    printf("\n=== µğÀúÆ® ÁÖ¹® ÀÚÆÇ±â ===\n");
-    printf("1. ¸Ş´º Á¶È¸\t6. ÆÄÀÏ °¡Á®¿À±â\n");
-    printf("2. ¸Ş´º Ãß°¡\t7. ÁÖ¹® ¼±ÅÃÇÏ±â\n");
-    printf("3. ¸Ş´º ¼öÁ¤\t8. Á¦Ç°¸í °Ë»ö\n");
-    printf("4. ¸Ş´º »èÁ¦\t9. °¡°İÀ¸·Î °Ë»ö\n");
-    printf("5. ¸Ş´º ÀúÀå\t10. ¸Ş´ºÁ¾·ù·Î °Ë»ö\n");
-    printf("0. Á¾·á\n\n");
-    printf("> ¿øÇÏ´Â ¿É¼ÇÀ» ¼±ÅÃÇØÁÖ¼¼¿ä. ");
+    printf("\n=== ë””ì €íŠ¸ ì£¼ë¬¸ ìíŒê¸° ===\n");
+    printf("1. ë©”ë‰´ ì¡°íšŒ\t6. íŒŒì¼ ê°€ì ¸ì˜¤ê¸°\n");
+    printf("2. ë©”ë‰´ ì¶”ê°€\t7. ì£¼ë¬¸ ì„ íƒí•˜ê¸°\n");
+    printf("3. ë©”ë‰´ ìˆ˜ì •\t8. ì œí’ˆëª… ê²€ìƒ‰\n");
+    printf("4. ë©”ë‰´ ì‚­ì œ\t9. ê°€ê²©ìœ¼ë¡œ ê²€ìƒ‰\n");
+    printf("5. ë©”ë‰´ ì €ì¥\t10. ë©”ë‰´ì¢…ë¥˜ë¡œ ê²€ìƒ‰\n");
+    printf("0. ì¢…ë£Œ\n\n");
+    printf("> ì›í•˜ëŠ” ì˜µì…˜ì„ ì„ íƒí•´ì£¼ì„¸ìš”. ");
     scanf("%d", &menu);
     return menu;
 }
 
 void readMenu(Menu* p){
   if(p->price!=-1)
-    printf("%s %dg %d¿ø %s\n",p->name,p->weight,p->price,p->kind);
+    printf("%s %dg %dì› %s\n",p->name,p->weight,p->price,p->kind);
 
-}//ÇÏ³ªÀÇ Á¦Ç°À» Ãâ·ÂÇÏ´Â ÇÔ¼ö
+}//í•˜ë‚˜ì˜ ì œí’ˆì„ ì¶œë ¥í•˜ëŠ” í•¨ìˆ˜
 
 void loadMenu( Menu* p[], int count){
-    printf("\nÁ¦Ç°¸í  Áß·®    °¡°İ    Á¾·ù\n-----------------------\n");
+    printf("\nì œí’ˆëª…  ì¤‘ëŸ‰    ê°€ê²©    ì¢…ë¥˜\n-----------------------\n");
     for(int i=0; i<count; i++){
         if(p[i]->price!=-1)printf("[%d]",i+1);
         readMenu(p[i]);
     }
-}//¸ğµç Á¦Ç°À» Ãâ·ÂÇÏ´Â ÇÔ¼ö
+}//ëª¨ë“  ì œí’ˆì„ ì¶œë ¥í•˜ëŠ” í•¨ìˆ˜
 
 int getMenu( Menu *p){
     
-    printf("ÀÌ¸§Àº?");
+    printf("ì´ë¦„ì€?");
     scanf("%s",p->name);
-    printf("Áß·®Àº?");
+    printf("ì¤‘ëŸ‰ì€?");
     scanf("%d",&p->weight);
-    printf("°¡°İÀº?");
+    printf("ê°€ê²©ì€?");
     scanf("%d",&p->price);
-    printf("Á¾·ù´Â?");
+    printf("ì¢…ë¥˜ëŠ”?");
     scanf("%s",p->kind);
     return 1;
-}//Á¦Ç°À» Ãß°¡ÇÏ´Â ÇÔ¼ö
+}//ì œí’ˆì„ ì¶”ê°€í•˜ëŠ” í•¨ìˆ˜
 
 
 int changeMenu(Menu* p[], int count){
     int updatenum;
-    printf("¼öÁ¤ÇÏ°í½ÍÀº Á¦Ç°ÀÇ ¹øÈ£¸¦ ÀÔ·ÂÇØÁÖ¼¼¿ä: ");
+    printf("ìˆ˜ì •í•˜ê³ ì‹¶ì€ ì œí’ˆì˜ ë²ˆí˜¸ë¥¼ ì…ë ¥í•´ì£¼ì„¸ìš”: ");
     scanf("%d",&updatenum);
     if(updatenum< count) return 0;
 
-    printf("ÀÌ¸§Àº?");
+    printf("ì´ë¦„ì€?");
     scanf("%s",p[updatenum-1]->name);
-    printf("Áß·®Àº?");
+    printf("ì¤‘ëŸ‰ì€?");
     scanf("%d",&p[updatenum-1]->weight);
-    printf("°¡°İÀº?");
+    printf("ê°€ê²©ì€?");
     scanf("%d",&p[updatenum-1]->price);
-    printf("Á¾·ù´Â?");
+    printf("ì¢…ë¥˜ëŠ”?");
     scanf("%s",p[updatenum-1]->kind);
-    printf("¼öÁ¤µÇ¾ú½À´Ï´Ù\n");
+    printf("ìˆ˜ì •ë˜ì—ˆìŠµë‹ˆë‹¤\n");
     return 1;
-}// ¸Ş´º¸¦ º¯°æÇÏ´Â ÇÔ¼ö
+}// ë©”ë‰´ë¥¼ ë³€ê²½í•˜ëŠ” í•¨ìˆ˜
 
 int deleteMenu( Menu *p){
     int n;
-    printf("Á¤¸» »èÁ¦ÇÏ½Ã°Ú½À´Ï±î?(È®ÀÎ:0/¾Æ´Ï¿À:1) ");
+    printf("ì •ë§ ì‚­ì œí•˜ì‹œê² ìŠµë‹ˆê¹Œ?(í™•ì¸:0/ì•„ë‹ˆì˜¤:1) ");
     scanf("%d",&n);
     if(n==0){
         p->price = -1;
         return 0;
     }
     return -1;
-}//ÁÖ¹®ÇÏÁö ¾ÊÀ» Á¦Ç°À» »èÁ¦ÇÏ´Â ±â´É ÁÖ¹®ÇÏÁö ¾ÊÀ» ½Ã (return -1)
+}//ì£¼ë¬¸í•˜ì§€ ì•Šì„ ì œí’ˆì„ ì‚­ì œí•˜ëŠ” ê¸°ëŠ¥ ì£¼ë¬¸í•˜ì§€ ì•Šì„ ì‹œ (return -1)
 
 void selectMenu(Menu *p[], int count){
     int num,a,b;
@@ -77,41 +77,69 @@ void selectMenu(Menu *p[], int count){
     fp = fopen("order.txt","wt");
     while(1){
         loadMenu(p,count);
-        printf("¼±ÅÃÇÒ ¸Ş´ºÀÇ ¹øÈ£¸¦ ÀÔ·Â ÇÏ¼¼¿ä: ");
+        printf("ì„ íƒí•  ë©”ë‰´ì˜ ë²ˆí˜¸ë¥¼ ì…ë ¥ í•˜ì„¸ìš”: ");
         scanf("%d",&num);
-        printf("¼ö·®À» ÀÔ·ÂÇÏ¼¼¿ä: ");
+        printf("ìˆ˜ëŸ‰ì„ ì…ë ¥í•˜ì„¸ìš”: ");
         scanf("%d",&a);
         if(p[num-1]->price != -1 && num <count) {
-            fprintf(fp, "%s %dg %d %s %d°³\n",p[num-1]->name, p[num-1]->weight, p[num-1]->price, p[num-1]->kind, a);
+            fprintf(fp, "%s %dg %d %s %dê°œ\n",p[num-1]->name, p[num-1]->weight, p[num-1]->price, p[num-1]->kind, a);
         }
-        printf(" ´õ ÁÖ¹®ÇÏ½Ã°Ú½À´Ï±î? (³×:0/¾Æ´Ï¿À:1) ");
+        printf(" ë” ì£¼ë¬¸í•˜ì‹œê² ìŠµë‹ˆê¹Œ? (ë„¤:0/ì•„ë‹ˆì˜¤:1) ");
         scanf("%d",&b);
         if(b==1) break;
     }
     fclose(fp);
-    printf("=>ÁÖ¹®ÀÌ Á¢¼öµÇ¾ú½À´Ï´Ù.\n\n");
-} //ÁÖ¹®ÇÒ ¸Ş´º¸¦ ¼±ÅÃÇÏ´Â ÇÔ¼ö
+    printf("=>ì£¼ë¬¸ì´ ì ‘ìˆ˜ë˜ì—ˆìŠµë‹ˆë‹¤.\n\n");
+} //ì£¼ë¬¸í•  ë©”ë‰´ë¥¼ ì„ íƒí•˜ëŠ” í•¨ìˆ˜
 
 void searchName( Menu *p[], int count){
     char search[20];
-    printf("°Ë»öÇÒ Á¦Ç°ÀÇ ÀÌ¸§À» ÀÔ·ÂÇÏ¼¼¿ä: ");
+    printf("ê²€ìƒ‰í•  ì œí’ˆì˜ ì´ë¦„ì„ ì…ë ¥í•˜ì„¸ìš”: ");
     scanf("%s",search);
     for(int i=0;i<count;i++){
         if(strstr(p[i]->name,search)){
             readMenu(p[i]);
         }
     }
-}//Á¦Ç°¸íÀ» ÅëÇØ °Ë»öÇÏ´Â ÇÔ¼ö
+}//ì œí’ˆëª…ì„ í†µí•´ ê²€ìƒ‰í•˜ëŠ” í•¨ìˆ˜
 
 void searchPrice( Menu* p[], int count){
     int search;
-    printf("°Ë»öÇÒ Á¦Ç°ÀÇ °¡°İÀ» ÀÔ·ÂÇÏ¼¼¿ä: ");
+    printf("ê²€ìƒ‰í•  ì œí’ˆì˜ ê°€ê²©ì„ ì…ë ¥í•˜ì„¸ìš”: ");
     scanf("%d",&search);
     for(int i=0;i<count;i++){
         if(p[i]->price=search){
             readMenu(p[i]);
         }
     }
-}//°¡°İÀ» ÅëÇØ °Ë»öÇÏ´Â ÇÔ¼ö
+}//ê°€ê²©ì„ í†µí•´ ê²€ìƒ‰í•˜ëŠ” í•¨ìˆ˜
 
-void searchKind( Menu* p[], int count);//¸Ş´ºÀÇ Á¾·ùÀ» ÅëÇØ °Ë»öÇÏ´Â ÇÔ¼ö
+void searchKind( Menu* p[], int count){
+
+} //ë©”ë‰´ì˜ ì¢…ë¥˜ì„ í†µí•´ ê²€ìƒ‰í•˜ëŠ” í•¨ìˆ˜
+
+void saveMenu( Menu *p[], int count){
+    FILE *fp;
+    fp = fopen("menu.txt","wt");
+    for(int i=0; i<count;i++){
+        if(p[i]->price != -1) {
+            fprintf(fp, "%s %d %d %s \n",p[i]->name, p[i]->weight, p[i]->price, p[i]->kind);
+        }
+    }
+    fclose(fp);
+    printf("=>ë©”ë‰´ê°€ ì €ì¥ë˜ì—ˆìŠµë‹ˆë‹¤.\n");
+}
+
+
+int bringMenu( Menu* p[]){
+    FILE *fp;
+    fp = fopen("menu.txt","rt");
+    int temp, count = 0;
+    while(!feof(fp)){
+        p[count] = (Menu*) malloc(sizeof(Menu));
+        temp = fscanf(fp,"%s %d %d %s",p[count]->name, &p[count]->weight, &p[count]->price, p[count]->kind);
+        if(temp<1) break;
+        count ++;
+    }
+    return count;
+}// ì €ì¥í•œ ë©”ë‰´ë¥¼ ë‹¤ì‹œ ê°€ì ¸ì˜¤ëŠ” í•¨ìˆ˜
