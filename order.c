@@ -39,11 +39,17 @@ int main(void){
         }//메뉴 삭제
 
         else if(menu==5){
-            
+            saveMenu(p,count);
         }//메뉴 저장
 
         else if(menu==6){
-            
+            int count = bringMenu(p);
+            for(int i=0;i<count;i++){
+                p[i] = (Menu*) malloc(sizeof(Menu));
+            }
+            int n6 = bringMenu(p);
+            if(n6>0) printf("=>로딩 성공!\n");
+            else printf("=>자료 없음\n");
         }//파일 가져오기
 
         else if(menu==7){
@@ -51,11 +57,11 @@ int main(void){
         }//주문 선택하기
 
         else if(menu==8){
-        searchName(p,count);
+            searchName(p,count);
         }//제품명 검색
 
         else if(menu==9){
-        searchPrice(p,count);
+            searchPrice(p,count);
         }//가격으로 검색
 
         else if(menu==10){

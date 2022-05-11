@@ -129,3 +129,17 @@ void saveMenu( Menu *p[], int count){
     fclose(fp);
     printf("=>메뉴가 저장되었습니다.\n");
 }
+
+
+int bringMenu( Menu* p[]){
+    FILE *fp;
+    fp = fopen("menu.txt","rt");
+    int temp, count = 0;
+    while(!feof(fp)){
+        p[count] = (Menu*) malloc(sizeof(Menu));
+        temp = fscanf(fp,"%s %d %d %s",p[count]->name, &p[count]->weight, &p[count]->price, p[count]->kind);
+        if(temp<1) break;
+        count ++;
+    }
+    return count;
+}// 저장한 메뉴를 다시 가져오는 함수
