@@ -13,66 +13,66 @@ int main(void){
         if(menu==1){
             if(count>0)
             loadMenu(p,index);   
-        }//ë©”ë‰´ ì¡°íšŒ
+        }//¸Ş´º Á¶È¸
 
         else if(menu==2){
             p[index] = (Menu*) malloc(sizeof(Menu));
             count=count+getMenu(p[index++]);
 
-        }//ë©”ë‰´ ì¶”ê°€
+        }//¸Ş´º Ãß°¡
 
         else if(menu==3){
             int n3 = changeMenu(p,index);
-            if(n3 !=1) printf("=>ì˜ëª»ëœ ë²ˆí˜¸ì…ë‹ˆë‹¤.\n");
-        }//ë©”ë‰´ ìˆ˜ì •
+            if(n3 !=1) printf("=>Àß¸øµÈ ¹øÈ£ÀÔ´Ï´Ù.\n");
+        }//¸Ş´º ¼öÁ¤
 
         else if(menu==4){
             int num, n4;
-            printf("ì‚­ì œí•  ì œí’ˆ ë²ˆí˜¸ë¥¼ ì…ë ¥í•´ì£¼ì„¸ìš” >");
+            printf("»èÁ¦ÇÒ Á¦Ç° ¹øÈ£¸¦ ÀÔ·ÂÇØÁÖ¼¼¿ä >");
             scanf("%d",&num);
             if(num<=count){
                 n4 = deleteMenu(p[num-1]);
             } else{
-                printf("=>ì¡´ì¬í•˜ì§€ ì•ŠëŠ” ì œí’ˆ ë²ˆí˜¸ì…ë‹ˆë‹¤!!");
+                printf("=>Á¸ÀçÇÏÁö ¾Ê´Â Á¦Ç° ¹øÈ£ÀÔ´Ï´Ù!!");
             }
-            if(n4==0) printf("ì‚­ì œë˜ì—ˆìŠµë‹ˆë‹¤.\n");
-        }//ë©”ë‰´ ì‚­ì œ
+            if(n4==0) printf("»èÁ¦µÇ¾ú½À´Ï´Ù.\n");
+        }//¸Ş´º »èÁ¦
 
         else if(menu==5){
             saveMenu(p,count);
-        }//ë©”ë‰´ ì €ì¥
+        }//¸Ş´º ÀúÀå
 
         else if(menu==6){
             int n6 = bringMenu(p);
             if(n6>0) {
-                printf("=>ë¡œë”© ì„±ê³µ!\n");
+                printf("=>·Îµù ¼º°ø!\n");
                 count = n6;
                 index = n6;
             }
-            else printf("=>ìë£Œ ì—†ìŒ\n");
-        }//íŒŒì¼ ê°€ì ¸ì˜¤ê¸°
+            else printf("=>ÀÚ·á ¾øÀ½\n");
+        }//ÆÄÀÏ °¡Á®¿À±â
 
         else if(menu==7){
             selectMenu(p, count);
-        }//ì£¼ë¬¸ ì„ íƒí•˜ê¸°
+        }//ÁÖ¹® ¼±ÅÃÇÏ±â
 
         else if(menu==8){
             searchName(p,count);
-        }//ì œí’ˆëª… ê²€ìƒ‰
+        }//Á¦Ç°¸í °Ë»ö
 
         else if(menu==9){
             searchPrice(p,count);
-        }//ê°€ê²©ìœ¼ë¡œ ê²€ìƒ‰
+        }//°¡°İÀ¸·Î °Ë»ö
 
         else if(menu==10){
-            
-        }//ë©”ë‰´ ì¢…ë¥˜ë¡œ ê²€ìƒ‰
+            searchKind(p,count);           
+        }//¸Ş´º Á¾·ù·Î °Ë»ö
 
         else {
             for(int i=0;i<count;i++){
                 free(p[i]);
             }
-            printf("=>ì¢…ë£Œë˜ì—ˆìŠµë‹ˆë‹¤.\n");
+            printf("=>Á¾·áµÇ¾ú½À´Ï´Ù.\n");
             break;
         }
     }
