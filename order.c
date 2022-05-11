@@ -43,12 +43,12 @@ int main(void){
         }//메뉴 저장
 
         else if(menu==6){
-            int count = bringMenu(p);
-            for(int i=0;i<count;i++){
-                p[i] = (Menu*) malloc(sizeof(Menu));
-            }
             int n6 = bringMenu(p);
-            if(n6>0) printf("=>로딩 성공!\n");
+            if(n6>0) {
+                printf("=>로딩 성공!\n");
+                count = n6;
+                index = n6;
+            }
             else printf("=>자료 없음\n");
         }//파일 가져오기
 
