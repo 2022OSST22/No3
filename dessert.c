@@ -108,7 +108,7 @@ void searchPrice( Menu* p[], int count){
     printf("검색할 제품의 가격을 입력하세요: ");
     scanf("%d",&search);
     for(int i=0;i<count;i++){
-        if(p[i]->price=search){
+        if(p[i]->price==search){
             readMenu(p[i]);
         }
     }
